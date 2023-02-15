@@ -11,7 +11,7 @@ public class Exercise1 {
         switch (question) {
             case 1:
                 System.out.println(
-                        "\nQuestion1: Enter 3 numbers from the user & make a function to print their average.");
+                        "\nQuestion 1: Enter 3 numbers from the user & make a function to print their average.");
                 int[] numbers;
                 numbers = new int[3];
                 for (int i = 1; i <= 3; i++) {
@@ -23,14 +23,14 @@ public class Exercise1 {
 
                 break;
             case 2:
-                System.out.println("\nQuestion2: Write a function to print the sum of all odd numbers from 1 to n.");
+                System.out.println("\nQuestion 2: Write a function to print the sum of all odd numbers from 1 to n.");
                 System.out.print("\n\n\tEnter a number:");
                 int number = sc.nextInt();
                 additionOfOdd(number);
                 break;
             case 3:
                 System.out.println(
-                        "\nQuestion3: Write a function which takes in 2 numbers and returns the greater of those two.");
+                        "\nQuestion 3: Write a function which takes in 2 numbers and returns the greater of those two.");
                 System.out.print("\n\n\tEnter 1st number:");
                 int number1 = sc.nextInt();
                 System.out.print("\n\tEnter 2nd number:");
@@ -39,19 +39,19 @@ public class Exercise1 {
                 break;
             case 4:
                 System.out.println(
-                        "\nQuestion4: Write a function that takes in the radius as input and returns the circumference of a circle");
+                        "\nQuestion 4: Write a function that takes in the radius as input and returns the circumference of a circle");
                 System.out.print("\n\n\tEnter radius of circle : ");
                 int radius = sc.nextInt();
                 circumferenceOfCircle(radius);
                 break;
             case 5:
                 System.out.println(
-                        "\nQuestion4:  Write a program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeros entered.");
+                        "\nQuestion 5:  Write a program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeros entered.");
                 countPosNegZero();
                 break;
             case 6:
                 System.out.println(
-                        "\nQuestion5: Two numbers are entered by the user, x and n. Write a function to find the value of one number raised to the power of another i.e. x^n.");
+                        "\nQuestion 6: Two numbers are entered by the user, x and n. Write a function to find the value of one number raised to the power of another i.e. x^n.");
 
                 System.out.print("\nEnter value for x : ");
                 int x = sc.nextInt();
@@ -60,7 +60,24 @@ public class Exercise1 {
                 power(x, n);
 
                 break;
+            case 7:
+                System.out.print(
+                        "\nQuestion 7: Write a function that calculates the Greatest Common Divisor of 2 numbers.");
 
+                System.out.print("\n\n\tEnter 1st number : ");
+                int num1 = sc.nextInt();
+                System.out.print("\n\tEnter 1st number : ");
+                int num2 = sc.nextInt();
+                gratestCommonDivisor(num1, num2);
+                break;
+            case 8:
+                System.out.println(
+                        "\nQuestion 8: Write a program to print Fibonacci series of n terms where n is input by user : 0 1 1 2 3 5 8 13 21 .....");
+
+                System.out.print("\n\tEnter N for Fibonacci series : ");
+                int N = sc.nextInt();
+                fibonacciSeries(N);
+                break;
             default:
                 System.out.println("\nInvalid question number");
                 break;
@@ -100,7 +117,7 @@ public class Exercise1 {
         System.out.print("\nAddition of all N(" + n + ") odd number is : " + result);
     }
 
-    // Question3: Write a function which takes in 2 numbers and returns the greater
+    // Question 3: Write a function which takes in 2 numbers and returns the greater
     // of those two.
     public static void greaterOfTwo(int a, int b) {
         if (a > b) {
@@ -113,7 +130,7 @@ public class Exercise1 {
         return;
     }
 
-    // Question4:Write a function that takes in the radius as input and returns the
+    // Question 4:Write a function that takes in the radius as input and returns the
     // circumference of a circle.
 
     public static void circumferenceOfCircle(int radius) {
@@ -121,7 +138,7 @@ public class Exercise1 {
         System.out.print("\n\t Circumference of circle is " + (2 * pie * radius));
     }
 
-    // Question5: Write a program to enter the numbers till the user wants and at
+    // Question 5: Write a program to enter the numbers till the user wants and at
     // the end it should display the count of positive, negative and zeros entered.
     public static void countPosNegZero() {
         Scanner sc = new Scanner(System.in);
@@ -148,7 +165,7 @@ public class Exercise1 {
         sc.close();
     }
 
-    // Question5: Two numbers are entered by the user, x and n. Write a function to
+    // Question 6: Two numbers are entered by the user, x and n. Write a function to
     // find the value of one number raised to the power of another i.e. x^n.
 
     public static void power(int x, int n) {
@@ -158,4 +175,36 @@ public class Exercise1 {
         }
         System.out.println("\nResult of " + x + "^" + n + " is : " + result);
     }
+
+    // Question 7: Write a function that calculates the Greatest Common Divisor of 2
+    // numbers.
+
+    public static void gratestCommonDivisor(int a, int b) {
+        int minNumber = Math.min(a, b);
+        while (minNumber > 0) {
+            if (a % minNumber == 0 && b % minNumber == 0) {
+                break;
+            }
+            minNumber--;
+        }
+        System.out.println("Greatest Common Divisor of " + a + " and " + b + " is " + minNumber);
+    }
+
+    // Question 8: Write a program to print Fibonacci series of n terms where n is
+    // input by user : 0 1 1 2 3 5 8 13 21 .....
+
+    public static void fibonacciSeries(int n) {
+        int prev = 0;
+        int next = 1;
+        int i = 2;
+        System.out.print("\n\n\tFibonacci series of N(" + n + ") is : " + prev + "," + next + ",");
+        while (i != n) {
+            int addition = prev + next;
+            System.out.print(addition + ",");
+            prev = next;
+            next = addition;
+            i++;
+        }
+    }
+
 }
